@@ -1,0 +1,105 @@
+{
+  "n_emails": 36263,
+  "n_spam": 17353,
+  "sources": {
+    "enron": 30263,
+    "campus_train": 6000
+  },
+  "features": "Unigrams + bigrams",
+  "tuning": [
+    {
+      "Features": "Unigrams",
+      "Model": "Multinomial Naive Bayes",
+      "Best settings": "{\"alpha\": 0.05}",
+      "CV F1": 0.9896
+    },
+    {
+      "Features": "Unigrams",
+      "Model": "Logistic Regression",
+      "Best settings": "{\"C\": 20}",
+      "CV F1": 0.9907
+    },
+    {
+      "Features": "Unigrams + bigrams",
+      "Model": "Multinomial Naive Bayes",
+      "Best settings": "{\"alpha\": 0.01}",
+      "CV F1": 0.9913
+    },
+    {
+      "Features": "Unigrams + bigrams",
+      "Model": "Logistic Regression",
+      "Best settings": "{\"C\": 20}",
+      "CV F1": 0.9917
+    }
+  ],
+  "models": {
+    "Multinomial Naive Bayes": {
+      "best_params": {
+        "alpha": 0.01
+      },
+      "train_accuracy": 0.9947259565667012,
+      "cv_f1": 0.9912817113658399,
+      "test": {
+        "accuracy": 0.9909003171101614,
+        "precision": 0.9913419913419913,
+        "recall": 0.989628349178911,
+        "specificity": 0.9920676890534109,
+        "f1": 0.990484429065744,
+        "tp": 3435,
+        "fn": 36,
+        "fp": 30,
+        "tn": 3752
+      },
+      "test_by_source": {
+        "enron": 0.9889963321107036,
+        "campus_train": 1.0
+      },
+      "campus_test": {
+        "accuracy": 0.9666666666666667,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "specificity": 0.9333333333333333,
+        "f1": 0.967741935483871,
+        "tp": 30,
+        "fn": 0,
+        "fp": 2,
+        "tn": 28
+      }
+    },
+    "Logistic Regression": {
+      "best_params": {
+        "C": 20
+      },
+      "train_accuracy": 0.9986556359875904,
+      "cv_f1": 0.9917499484158814,
+      "test": {
+        "accuracy": 0.9931063008410312,
+        "precision": 0.9905362776025236,
+        "recall": 0.9951022760011524,
+        "specificity": 0.991274457958752,
+        "f1": 0.9928140270192584,
+        "tp": 3454,
+        "fn": 17,
+        "fp": 33,
+        "tn": 3749
+      },
+      "test_by_source": {
+        "enron": 0.9916638879626543,
+        "campus_train": 1.0
+      },
+      "campus_test": {
+        "accuracy": 0.9333333333333333,
+        "precision": 0.8823529411764706,
+        "recall": 1.0,
+        "specificity": 0.8666666666666667,
+        "f1": 0.9375,
+        "tp": 30,
+        "fn": 0,
+        "fp": 4,
+        "tn": 26
+      }
+    }
+  },
+  "fast": false,
+  "seconds": 65
+}
